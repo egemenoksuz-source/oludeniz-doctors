@@ -1,5 +1,6 @@
 "use client";
 
+import SeoSchema from "@/components/SeoSchema";
 import {
   Ambulance,
   Bandage,
@@ -31,10 +32,19 @@ export default function HomePage() {
     [FileText, "Prescription Support", "Medication and document support."],
   ];
 
-  const locations = ["Ölüdeniz", "Hisarönü", "Faralya", "Kabak", "Ovacık", "Kayaköy"];
+  const locations = [
+    "Ölüdeniz",
+    "Hisarönü",
+    "Faralya",
+    "Kabak",
+    "Ovacık",
+    "Kayaköy",
+  ];
 
   return (
     <main className="min-h-screen bg-[#07131F] text-white">
+      <SeoSchema />
+
       <header className="fixed left-0 right-0 top-0 z-50 px-4 pt-4">
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between rounded-3xl border border-white/10 bg-[#07131F]/80 px-6 shadow-2xl backdrop-blur-xl">
           <a href="/" className="flex items-center gap-3">
@@ -50,22 +60,42 @@ export default function HomePage() {
           </a>
 
           <nav className="hidden gap-8 font-bold text-slate-300 md:flex">
-            <a href="#services" className="hover:text-cyan-300">Services</a>
-            <a href="#locations" className="hover:text-cyan-300">Locations</a>
-            <a href="#faq" className="hover:text-cyan-300">FAQ</a>
-            <a href="#contact" className="hover:text-cyan-300">Contact</a>
+            <a href="#services" className="hover:text-cyan-300">
+              Services
+            </a>
+            <a href="#locations" className="hover:text-cyan-300">
+              Locations
+            </a>
+            <a href="#faq" className="hover:text-cyan-300">
+              FAQ
+            </a>
+            <a href="#contact" className="hover:text-cyan-300">
+              Contact
+            </a>
           </nav>
 
           <div className="hidden gap-3 md:flex">
-            <a href="https://wa.me/905519354480" target="_blank" className="rounded-full bg-green-500 px-5 py-3 font-black text-white">
+            <a
+              href="https://wa.me/905519354480"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full bg-green-500 px-5 py-3 font-black text-white"
+            >
               WhatsApp
             </a>
-            <a href="tel:+905519354480" className="rounded-full bg-red-600 px-5 py-3 font-black text-white">
+            <a
+              href="tel:+905519354480"
+              className="rounded-full bg-red-600 px-5 py-3 font-black text-white"
+            >
               Call Now
             </a>
           </div>
 
-          <button onClick={() => setMenuOpen(!menuOpen)} className="rounded-xl bg-white/10 p-3 md:hidden">
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="rounded-xl bg-white/10 p-3 md:hidden"
+            aria-label="Open menu"
+          >
             {menuOpen ? <X /> : <Menu />}
           </button>
         </div>
@@ -73,7 +103,12 @@ export default function HomePage() {
         {menuOpen && (
           <div className="mx-auto mt-3 max-w-7xl rounded-3xl border border-white/10 bg-[#07131F] p-5 md:hidden">
             {["Services", "Locations", "FAQ", "Contact"].map((item) => (
-              <a key={item} href={`#${item.toLowerCase()}`} className="mb-3 block rounded-xl bg-white/5 px-4 py-4 font-bold">
+              <a
+                key={item}
+                href={`#${item.toLowerCase()}`}
+                onClick={() => setMenuOpen(false)}
+                className="mb-3 block rounded-xl bg-white/5 px-4 py-4 font-bold"
+              >
                 {item}
               </a>
             ))}
@@ -106,15 +141,24 @@ export default function HomePage() {
 
             <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-300 md:text-xl">
               Fast, discreet and English-speaking medical care for tourists,
-              hotels, villas and families in Ölüdeniz, Hisarönü, Faralya and Kabak.
+              hotels, villas and families in Ölüdeniz, Hisarönü, Faralya and
+              Kabak.
             </p>
 
             <div className="mt-9 flex flex-col gap-4 sm:flex-row">
-              <a href="tel:+905519354480" className="inline-flex items-center justify-center rounded-2xl bg-red-600 px-8 py-5 text-lg font-black text-white">
+              <a
+                href="tel:+905519354480"
+                className="inline-flex items-center justify-center rounded-2xl bg-red-600 px-8 py-5 text-lg font-black text-white"
+              >
                 <Phone className="mr-3 h-5 w-5" />
                 Call Now
               </a>
-              <a href="https://wa.me/905519354480" target="_blank" className="inline-flex items-center justify-center rounded-2xl bg-green-500 px-8 py-5 text-lg font-black text-white">
+              <a
+                href="https://wa.me/905519354480"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center rounded-2xl bg-green-500 px-8 py-5 text-lg font-black text-white"
+              >
                 <MessageCircle className="mr-3 h-5 w-5" />
                 WhatsApp
               </a>
@@ -126,8 +170,13 @@ export default function HomePage() {
                 ["EN", "English Speaking"],
                 ["6+", "Service Areas"],
               ].map(([value, label]) => (
-                <div key={label} className="rounded-3xl border border-white/10 bg-white/10 p-5 backdrop-blur">
-                  <div className="text-3xl font-black text-cyan-300">{value}</div>
+                <div
+                  key={label}
+                  className="rounded-3xl border border-white/10 bg-white/10 p-5 backdrop-blur"
+                >
+                  <div className="text-3xl font-black text-cyan-300">
+                    {value}
+                  </div>
                   <div className="mt-1 text-sm text-slate-300">{label}</div>
                 </div>
               ))}
@@ -159,11 +208,16 @@ export default function HomePage() {
                   "Prescription assistance",
                   "Travel insurance support",
                 ].map((item) => (
-                  <div key={item} className="flex items-center gap-4 rounded-2xl bg-white/5 p-4">
+                  <div
+                    key={item}
+                    className="flex items-center gap-4 rounded-2xl bg-white/5 p-4"
+                  >
                     <span className="flex h-8 w-8 items-center justify-center rounded-full bg-cyan-300 font-black text-[#07131F]">
                       ✓
                     </span>
-                    <span className="font-semibold text-slate-200">{item}</span>
+                    <span className="font-semibold text-slate-200">
+                      {item}
+                    </span>
                   </div>
                 ))}
               </div>
@@ -180,10 +234,15 @@ export default function HomePage() {
             [MapPin, "6+", "Service Areas"],
             [MessageCircle, "Fast", "WhatsApp Response"],
           ].map(([Icon, value, label]: any) => (
-            <div key={label} className="rounded-3xl border border-white/10 bg-white/5 p-6 text-center">
+            <div
+              key={label}
+              className="rounded-3xl border border-white/10 bg-white/5 p-6 text-center"
+            >
               <Icon className="mx-auto mb-3 h-7 w-7 text-cyan-300" />
               <div className="text-4xl font-black">{value}</div>
-              <div className="mt-2 text-sm font-semibold text-slate-400">{label}</div>
+              <div className="mt-2 text-sm font-semibold text-slate-400">
+                {label}
+              </div>
             </div>
           ))}
         </div>
@@ -191,11 +250,17 @@ export default function HomePage() {
 
       <section id="services" className="px-6 py-24">
         <div className="mx-auto max-w-7xl">
-          <Title small="Medical Services" title="Private medical care when you need it" />
+          <Title
+            small="Medical Services"
+            title="Private medical care when you need it"
+          />
 
           <div className="grid gap-6 md:grid-cols-3">
             {services.map(([Icon, title, text]: any) => (
-              <div key={title} className="group rounded-[2rem] border border-white/10 bg-[#12263A] p-8 transition hover:-translate-y-2 hover:shadow-2xl hover:shadow-cyan-950/40">
+              <div
+                key={title}
+                className="group rounded-[2rem] border border-white/10 bg-[#12263A] p-8 transition hover:-translate-y-2 hover:shadow-2xl hover:shadow-cyan-950/40"
+              >
                 <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-cyan-300/10 text-cyan-300">
                   <Icon className="h-7 w-7" />
                 </div>
@@ -216,13 +281,19 @@ export default function HomePage() {
 
           <div className="grid gap-6 md:grid-cols-3">
             {locations.map((location) => (
-              <div key={location} className="rounded-[2rem] border border-white/10 bg-[#12263A] p-8 transition hover:-translate-y-2 hover:shadow-2xl hover:shadow-cyan-950/40">
+              <div
+                key={location}
+                className="rounded-[2rem] border border-white/10 bg-[#12263A] p-8 transition hover:-translate-y-2 hover:shadow-2xl hover:shadow-cyan-950/40"
+              >
                 <MapPin className="mb-6 h-8 w-8 text-cyan-300" />
                 <h3 className="text-2xl font-black">Doctor in {location}</h3>
                 <p className="mt-4 leading-7 text-slate-300">
-                  Private doctor service for hotels, villas, holiday homes and local stays.
+                  Private doctor service for hotels, villas, holiday homes and
+                  local stays.
                 </p>
-                <div className="mt-7 font-black text-cyan-300">Learn More →</div>
+                <div className="mt-7 font-black text-cyan-300">
+                  Learn More →
+                </div>
               </div>
             ))}
           </div>
@@ -234,12 +305,27 @@ export default function HomePage() {
           <Title small="FAQ" title="Frequently asked questions" />
 
           {[
-            ["Do you visit hotels?", "Yes, we visit hotels, villas, apartments and holiday homes."],
-            ["Do you speak English?", "Yes, we provide English-speaking medical support."],
-            ["Which areas do you cover?", "Ölüdeniz, Hisarönü, Faralya, Kabak, Ovacık and Kayaköy."],
-            ["Can I contact by WhatsApp?", "Yes, WhatsApp is the fastest way to contact us."],
+            [
+              "Do you visit hotels?",
+              "Yes, we visit hotels, villas, apartments and holiday homes.",
+            ],
+            [
+              "Do you speak English?",
+              "Yes, we provide English-speaking medical support.",
+            ],
+            [
+              "Which areas do you cover?",
+              "Ölüdeniz, Hisarönü, Faralya, Kabak, Ovacık and Kayaköy.",
+            ],
+            [
+              "Can I contact by WhatsApp?",
+              "Yes, WhatsApp is the fastest way to contact us.",
+            ],
           ].map(([q, a]) => (
-            <div key={q} className="mb-4 rounded-3xl border border-white/10 bg-[#12263A] p-7">
+            <div
+              key={q}
+              className="mb-4 rounded-3xl border border-white/10 bg-[#12263A] p-7"
+            >
               <h3 className="text-xl font-black">{q}</h3>
               <p className="mt-3 leading-7 text-slate-300">{a}</p>
             </div>
@@ -263,10 +349,18 @@ export default function HomePage() {
             </div>
 
             <div className="flex flex-col gap-4 md:items-end">
-              <a href="tel:+905519354480" className="rounded-2xl bg-white px-8 py-5 text-center text-lg font-black text-red-600">
+              <a
+                href="tel:+905519354480"
+                className="rounded-2xl bg-white px-8 py-5 text-center text-lg font-black text-red-600"
+              >
                 Call Now
               </a>
-              <a href="https://wa.me/905519354480" target="_blank" className="rounded-2xl bg-green-500 px-8 py-5 text-center text-lg font-black text-white">
+              <a
+                href="https://wa.me/905519354480"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-2xl bg-green-500 px-8 py-5 text-center text-lg font-black text-white"
+              >
                 WhatsApp
               </a>
             </div>
@@ -281,7 +375,8 @@ export default function HomePage() {
               <span className="text-cyan-300">Oludeniz</span> Doctor
             </div>
             <p className="mt-4 max-w-xl leading-7 text-slate-400">
-              24/7 private doctor service for tourists, hotels, villas and residents.
+              24/7 private doctor service for tourists, hotels, villas and
+              residents.
             </p>
           </div>
 
@@ -299,17 +394,33 @@ export default function HomePage() {
             <h3 className="font-black">Contact</h3>
             <div className="mt-4 grid gap-2 text-slate-400">
               <a href="tel:+905519354480">+90 551 935 44 80</a>
-              <a href="https://wa.me/905519354480" target="_blank">WhatsApp</a>
+              <a
+                href="https://wa.me/905519354480"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                WhatsApp
+              </a>
             </div>
           </div>
         </div>
       </footer>
 
       <div className="fixed bottom-5 right-5 z-50 flex flex-col gap-3">
-        <a href="https://wa.me/905519354480" target="_blank" className="flex h-14 w-14 items-center justify-center rounded-full bg-green-500 text-white shadow-2xl">
+        <a
+          href="https://wa.me/905519354480"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex h-14 w-14 items-center justify-center rounded-full bg-green-500 text-white shadow-2xl"
+          aria-label="WhatsApp"
+        >
           <MessageCircle />
         </a>
-        <a href="tel:+905519354480" className="flex h-14 w-14 items-center justify-center rounded-full bg-red-600 text-white shadow-2xl">
+        <a
+          href="tel:+905519354480"
+          className="flex h-14 w-14 items-center justify-center rounded-full bg-red-600 text-white shadow-2xl"
+          aria-label="Call"
+        >
           <Phone />
         </a>
       </div>
