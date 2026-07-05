@@ -20,38 +20,58 @@ export const metadata: Metadata = {
     template: "%s | Oludeniz Doctor",
   },
   description:
-    "24/7 private doctor service in Ölüdeniz, Hisarönü, Faralya and Kabak. Hotel visits, villa visits, emergency medical care and IV therapy.",
+    "Oludeniz Doctor provides 24/7 English-speaking private doctor service in Ölüdeniz, Fethiye, Hisarönü, Faralya and Kabak. Hotel visits, villa visits, emergency care and IV therapy.",
   keywords: [
+    "Oludeniz Doctor",
     "doctor in oludeniz",
     "private doctor oludeniz",
     "hotel doctor oludeniz",
     "emergency doctor oludeniz",
-    "doctor hisaronu",
-    "doctor faralya",
-    "doctor kabak",
+    "doctor in fethiye",
+    "english speaking doctor fethiye",
     "iv therapy oludeniz",
+    "food poisoning doctor oludeniz",
   ],
+  authors: [{ name: "Oludeniz Doctor" }],
+  creator: "Oludeniz Doctor",
+  publisher: "Oludeniz Doctor",
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title: "Oludeniz Doctor | 24/7 Private Doctor in Ölüdeniz",
     description:
-      "English-speaking private doctor service for hotels, villas and tourists in Ölüdeniz, Hisarönü, Faralya and Kabak.",
+      "English-speaking private doctor service for tourists, hotels and villas in Ölüdeniz and Fethiye.",
     url: "https://oludenizdoctor.com",
     siteName: "Oludeniz Doctor",
     locale: "en_GB",
     type: "website",
+    images: [
+      {
+        url: "/images/hero.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Oludeniz Doctor private doctor service",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Oludeniz Doctor | Private Doctor in Ölüdeniz",
     description:
-      "24/7 private doctor service for tourists, hotels and villas in Ölüdeniz and nearby areas.",
+      "24/7 private doctor service for tourists, hotels and villas in Ölüdeniz and Fethiye.",
+    images: ["/images/hero.jpg"],
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
   icons: {
     icon: "/icon.png",
@@ -60,7 +80,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#07131F",
+  themeColor: "#00B8D9",
   width: "device-width",
   initialScale: 1,
 };

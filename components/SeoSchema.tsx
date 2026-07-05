@@ -3,23 +3,36 @@ export default function SeoSchema() {
     "@context": "https://schema.org",
     "@graph": [
       {
+        "@type": "Organization",
+        "@id": "https://oludenizdoctor.com/#organization",
+        name: "Oludeniz Doctor",
+        url: "https://oludenizdoctor.com",
+        logo: "https://oludenizdoctor.com/icon.png",
+        contactPoint: {
+          "@type": "ContactPoint",
+          telephone: "+905519354480",
+          contactType: "customer service",
+          availableLanguage: ["English", "Turkish"],
+        },
+      },
+      {
         "@type": ["MedicalBusiness", "LocalBusiness"],
         "@id": "https://oludenizdoctor.com/#business",
         name: "Oludeniz Doctor",
         url: "https://oludenizdoctor.com",
         telephone: "+905519354480",
-        priceRange: "$$",
         image: "https://oludenizdoctor.com/images/hero.jpg",
+        priceRange: "$$",
         description:
-          "24/7 private doctor service in Ölüdeniz, Hisarönü, Faralya and Kabak. Hotel visits, villa visits, emergency medical care and IV therapy.",
+          "24/7 English-speaking private doctor service in Ölüdeniz, Fethiye, Hisarönü, Faralya and Kabak. Hotel visits, villa visits, emergency care and IV therapy.",
         areaServed: [
           "Ölüdeniz",
+          "Fethiye",
           "Hisarönü",
+          "Ovacık",
           "Faralya",
           "Kabak",
-          "Ovacık",
           "Kayaköy",
-          "Fethiye",
         ],
         medicalSpecialty: [
           "Emergency Medicine",
@@ -42,7 +55,6 @@ export default function SeoSchema() {
             closes: "23:59",
           },
         ],
-        sameAs: ["https://oludenizdoctor.com"],
       },
       {
         "@type": "WebSite",
@@ -50,14 +62,14 @@ export default function SeoSchema() {
         url: "https://oludenizdoctor.com",
         name: "Oludeniz Doctor",
         publisher: {
-          "@id": "https://oludenizdoctor.com/#business",
+          "@id": "https://oludenizdoctor.com/#organization",
         },
       },
       {
         "@type": "WebPage",
         "@id": "https://oludenizdoctor.com/#webpage",
         url: "https://oludenizdoctor.com",
-        name: "Oludeniz Doctor | Private Doctor in Ölüdeniz",
+        name: "Oludeniz Doctor | 24/7 Private Doctor in Ölüdeniz",
         isPartOf: {
           "@id": "https://oludenizdoctor.com/#website",
         },
@@ -90,7 +102,7 @@ export default function SeoSchema() {
             name: "Which areas do you cover?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "We cover Ölüdeniz, Hisarönü, Faralya, Kabak, Ovacık, Kayaköy and nearby Fethiye areas.",
+              text: "We cover Ölüdeniz, Fethiye, Hisarönü, Ovacık, Faralya, Kabak and nearby areas.",
             },
           },
           {
