@@ -1,295 +1,294 @@
-import type { Metadata } from "next";
+"use client";
+
+import SeoSchema from "@/components/SeoSchema";
 import {
   Ambulance,
+  Bandage,
   Building2,
+  ChevronRight,
   Clock,
   Droplets,
+  FileText,
   Home,
   MapPin,
+  Menu,
   MessageCircle,
   Phone,
   ShieldCheck,
   Star,
-  Stethoscope,
+  X,
 } from "lucide-react";
+import { useState } from "react";
 
-export const metadata: Metadata = {
-  title: "Doctor in Ölüdeniz | 24/7 Private Doctor & Hotel Visits",
-  description:
-    "English-speaking private doctor in Ölüdeniz. 24/7 hotel doctor visits, villa visits, emergency medical care, IV therapy and tourist medical support.",
-  alternates: {
-    canonical: "/doctor-in-oludeniz",
-  },
-};
+export default function HomePage() {
+  const [menuOpen, setMenuOpen] = useState(false);
 
-const faqs = [
-  [
-    "Do you provide doctor visits in Ölüdeniz?",
-    "Yes. Oludeniz Doctor provides private doctor visits to hotels, villas, apartments and holiday homes in Ölüdeniz and nearby areas.",
-  ],
-  [
-    "Can tourists contact you in English?",
-    "Yes. English-speaking medical support is available for tourists and international visitors.",
-  ],
-  [
-    "Can a doctor visit my hotel?",
-    "Yes. Hotel doctor visits are available in Ölüdeniz, Hisarönü, Ovacık, Faralya, Kabak and nearby Fethiye areas.",
-  ],
-  [
-    "Do you provide IV therapy in Ölüdeniz?",
-    "Yes. IV therapy and hydration support may be provided depending on the medical situation and doctor assessment.",
-  ],
-  [
-    "Can I contact you on WhatsApp?",
-    "Yes. WhatsApp is the fastest way to contact us, share your location and request a private doctor visit.",
-  ],
-];
+  const services = [
+    [Ambulance, "Emergency Doctor", "24/7 urgent private medical support."],
+    [Building2, "Hotel Doctor", "Doctor visits to hotels and resorts."],
+    [Home, "Home Visit", "Private doctor visits to villas and homes."],
+    [Droplets, "IV Therapy", "Hydration and recovery treatments."],
+    [Bandage, "Wound Care", "Professional wound care and dressing."],
+    [FileText, "Prescription Support", "Medication and document support."],
+  ];
 
-export default function DoctorInOludenizPage() {
-  const schema = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": ["MedicalBusiness", "LocalBusiness"],
-        "@id": "https://oludenizdoctor.com/doctor-in-oludeniz/#business",
-        name: "Oludeniz Doctor",
-        url: "https://oludenizdoctor.com/doctor-in-oludeniz",
-        telephone: "+905519354480",
-        areaServed: ["Ölüdeniz", "Hisarönü", "Ovacık", "Faralya", "Kabak", "Fethiye"],
-        medicalSpecialty: ["Emergency Medicine", "Travel Medicine", "Family Medicine"],
-        openingHours: "Mo-Su 00:00-23:59",
-        description:
-          "24/7 private doctor service in Ölüdeniz for tourists, hotels, villas and holiday homes.",
-      },
-      {
-        "@type": "FAQPage",
-        mainEntity: faqs.map(([q, a]) => ({
-          "@type": "Question",
-          name: q,
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: a,
-          },
-        })),
-      },
-    ],
-  };
+  const seoPages = [
+    ["Doctor in Ölüdeniz", "/doctor-in-oludeniz"],
+    ["Doctor in Fethiye", "/doctor-in-fethiye"],
+    ["Doctor in Hisarönü", "/doctor-in-hisaronu"],
+    ["Hotel Doctor Ölüdeniz", "/hotel-doctor-oludeniz"],
+    ["IV Therapy Ölüdeniz", "/iv-therapy-oludeniz"],
+    ["Food Poisoning Treatment", "/food-poisoning-treatment"],
+  ];
+
+  const locations = [
+    "Ölüdeniz",
+    "Hisarönü",
+    "Faralya",
+    "Kabak",
+    "Ovacık",
+    "Kayaköy",
+  ];
 
   return (
-    <main className="min-h-screen bg-[#07131F] text-white">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-      />
+    <main className="min-h-screen text-[#12344D]">
+      <SeoSchema />
 
-      <section className="relative overflow-hidden px-6 py-28">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#07131F] via-[#0B1F33] to-[#12263A]" />
-
-        <div className="relative z-10 mx-auto max-w-7xl">
-          <a href="/" className="text-sm font-bold text-cyan-300">
-            ← Back to Home
-          </a>
-
-          <div className="mt-14 grid gap-12 md:grid-cols-2 md:items-center">
+      <header className="fixed left-0 right-0 top-0 z-50 px-4 pt-4">
+        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between rounded-3xl border border-white/70 bg-white/60 px-6 shadow-xl backdrop-blur-2xl">
+          <a href="/" className="flex items-center gap-3">
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#00B8D9] text-white shadow-lg">
+              <span className="font-black">OD</span>
+            </div>
             <div>
-              <div className="mb-6 inline-flex items-center rounded-full border border-cyan-300/30 bg-cyan-300/10 px-4 py-2 text-sm font-black text-cyan-200">
-                <ShieldCheck className="mr-2 h-4 w-4" />
-                24/7 Private Medical Assistance
-              </div>
-
-              <h1 className="text-5xl font-black leading-tight md:text-7xl">
-                Doctor in
-                <br />
-                <span className="text-cyan-300">Ölüdeniz</span>
-              </h1>
-
-              <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-300">
-                Oludeniz Doctor provides fast, discreet and English-speaking
-                private doctor service for tourists, hotels, villas and families
-                staying in Ölüdeniz. If you need medical help during your holiday,
-                you can contact us by phone or WhatsApp for hotel, villa or home visits.
-              </p>
-
-              <div className="mt-9 flex flex-col gap-4 sm:flex-row">
-                <a
-                  href="tel:+905519354480"
-                  className="inline-flex items-center justify-center rounded-2xl bg-red-600 px-8 py-5 text-lg font-black text-white"
-                >
-                  <Phone className="mr-3 h-5 w-5" />
-                  Call Now
-                </a>
-
-                <a
-                  href="https://wa.me/905519354480"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center rounded-2xl bg-green-500 px-8 py-5 text-lg font-black text-white"
-                >
-                  <MessageCircle className="mr-3 h-5 w-5" />
-                  WhatsApp
-                </a>
+              <div className="text-xl font-black text-[#12344D]">Oludeniz</div>
+              <div className="text-xs font-black tracking-[0.25em] text-[#00B8D9]">
+                DOCTOR
               </div>
             </div>
+          </a>
 
-            <div className="rounded-[2.5rem] border border-white/10 bg-white/10 p-5 backdrop-blur-xl">
-              <div className="rounded-[2rem] bg-[#0B1F33]/90 p-8">
-                <div className="mb-5 flex gap-1 text-cyan-300">
-                  {[1, 2, 3, 4, 5].map((s) => (
-                    <Star key={s} className="h-5 w-5 fill-current" />
-                  ))}
-                </div>
+          <nav className="hidden gap-8 font-bold text-[#5A7386] md:flex">
+            <a href="#services" className="hover:text-[#00B8D9]">Services</a>
+            <a href="#locations" className="hover:text-[#00B8D9]">Locations</a>
+            <a href="#faq" className="hover:text-[#00B8D9]">FAQ</a>
+            <a href="#contact" className="hover:text-[#00B8D9]">Contact</a>
+          </nav>
 
-                <h2 className="text-3xl font-black">
-                  Hotel, villa and home doctor visits in Ölüdeniz.
-                </h2>
+          <div className="hidden gap-3 md:flex">
+            <a
+              href="https://wa.me/905519354480"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full bg-[#25D366] px-5 py-3 font-black text-white shadow-lg transition hover:scale-105"
+            >
+              WhatsApp
+            </a>
+            <a
+              href="tel:+905519354480"
+              className="rounded-full bg-[#FF5A5F] px-5 py-3 font-black text-white shadow-lg transition hover:scale-105"
+            >
+              Call Now
+            </a>
+          </div>
 
-                <div className="mt-7 space-y-4">
-                  {[
-                    "English-speaking doctor",
-                    "Hotel doctor visits",
-                    "Villa and home visits",
-                    "Emergency medical support",
-                    "IV therapy support",
-                    "Prescription assistance",
-                  ].map((item) => (
-                    <div key={item} className="flex items-center gap-4 rounded-2xl bg-white/5 p-4">
-                      <span className="flex h-8 w-8 items-center justify-center rounded-full bg-cyan-300 font-black text-[#07131F]">
-                        ✓
-                      </span>
-                      <span className="font-semibold text-slate-200">{item}</span>
-                    </div>
-                  ))}
-                </div>
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="rounded-xl border border-white/70 bg-white/80 p-3 text-[#12344D] shadow md:hidden"
+            aria-label="Open menu"
+          >
+            {menuOpen ? <X /> : <Menu />}
+          </button>
+        </div>
+
+        {menuOpen && (
+          <div className="mx-auto mt-3 max-w-7xl rounded-3xl border border-white/70 bg-white/90 p-5 shadow-2xl backdrop-blur-xl md:hidden">
+            {["Services", "Locations", "FAQ", "Contact"].map((item) => (
+              <a
+                key={item}
+                href={`#${item.toLowerCase()}`}
+                onClick={() => setMenuOpen(false)}
+                className="mb-3 block rounded-xl bg-[#D8F7FF] px-4 py-4 font-bold text-[#12344D]"
+              >
+                {item}
+              </a>
+            ))}
+          </div>
+        )}
+      </header>
+
+      <section className="relative overflow-hidden px-6 pb-24 pt-36">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,184,217,0.28),transparent_35%),linear-gradient(135deg,#8EDCF2_0%,#AEEAF8_45%,#D8F7FF_100%)]" />
+
+        <div className="relative z-10 mx-auto grid max-w-7xl gap-12 md:min-h-[calc(100vh-9rem)] md:grid-cols-2 md:items-center">
+          <div>
+            <div className="mb-6 inline-flex items-center rounded-full border border-[#00B8D9]/25 bg-white/60 px-4 py-2 text-sm font-black text-[#00B8D9] shadow-sm backdrop-blur-xl">
+              <ShieldCheck className="mr-2 h-4 w-4" />
+              24/7 Private Doctor Service
+            </div>
+
+            <h1 className="text-5xl font-black leading-tight text-[#12344D] md:text-7xl">
+              Hotel & Villa
+              <br />
+              Doctor Visits in
+              <br />
+              <span className="text-[#00B8D9]">Ölüdeniz</span>
+            </h1>
+
+            <p className="mt-7 max-w-2xl text-lg leading-8 text-[#5A7386] md:text-xl">
+              Fast, discreet and English-speaking medical care for tourists,
+              hotels, villas and families in Ölüdeniz, Hisarönü, Faralya and
+              Kabak.
+            </p>
+
+            <div className="mt-9 flex flex-col gap-4 sm:flex-row">
+              <a
+                href="tel:+905519354480"
+                className="inline-flex items-center justify-center rounded-2xl bg-[#FF5A5F] px-8 py-5 text-lg font-black text-white shadow-xl transition hover:scale-105"
+              >
+                <Phone className="mr-3 h-5 w-5" />
+                Call Now
+              </a>
+              <a
+                href="https://wa.me/905519354480"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center rounded-2xl bg-[#25D366] px-8 py-5 text-lg font-black text-white shadow-xl transition hover:scale-105"
+              >
+                <MessageCircle className="mr-3 h-5 w-5" />
+                WhatsApp
+              </a>
+            </div>
+          </div>
+
+          <div className="rounded-[2.5rem] border border-white/70 bg-white/50 p-5 shadow-2xl backdrop-blur-xl">
+            <div className="rounded-[2rem] border border-white/70 bg-[#F9FDFF] p-8 shadow-lg">
+              <div className="mb-5 flex gap-1 text-[#D4AF37]">
+                {[1, 2, 3, 4, 5].map((s) => (
+                  <Star key={s} className="h-5 w-5 fill-current" />
+                ))}
+              </div>
+
+              <p className="text-sm font-black uppercase tracking-[0.25em] text-[#00B8D9]">
+                Emergency Medical Care
+              </p>
+
+              <h2 className="mt-3 text-3xl font-black text-[#12344D]">
+                Doctor visit to your hotel, villa or home.
+              </h2>
+
+              <div className="mt-7 space-y-4">
+                {[
+                  "Hotel doctor visits",
+                  "Home & villa visits",
+                  "IV therapy support",
+                  "Food poisoning care",
+                  "Prescription assistance",
+                  "Travel insurance support",
+                ].map((item) => (
+                  <div
+                    key={item}
+                    className="flex items-center gap-4 rounded-2xl border border-white/70 bg-white/85 p-4"
+                  >
+                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#00B8D9] font-black text-white">
+                      ✓
+                    </span>
+                    <span className="font-semibold text-[#12344D]">{item}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="border-y border-white/10 bg-[#0B1F33] px-6 py-12">
+      <section className="border-y border-white/70 bg-[#D8F7FF]/80 px-6 py-12">
         <div className="mx-auto grid max-w-7xl gap-5 md:grid-cols-4">
           {[
             [Clock, "24/7", "Medical Support"],
-            [ShieldCheck, "EN", "English Speaking"],
-            [Building2, "Hotel", "Doctor Visits"],
-            [Ambulance, "Fast", "Emergency Help"],
+            [ShieldCheck, "5.0", "Trusted Service"],
+            [MapPin, "6+", "Service Areas"],
+            [MessageCircle, "Fast", "WhatsApp Response"],
           ].map(([Icon, value, label]: any) => (
-            <div key={label} className="rounded-3xl border border-white/10 bg-white/5 p-6 text-center">
-              <Icon className="mx-auto mb-3 h-7 w-7 text-cyan-300" />
-              <div className="text-4xl font-black">{value}</div>
-              <div className="mt-2 text-sm font-semibold text-slate-400">{label}</div>
+            <div
+              key={label}
+              className="rounded-3xl border border-white/70 bg-[#F9FDFF] p-6 text-center shadow-sm"
+            >
+              <Icon className="mx-auto mb-3 h-7 w-7 text-[#00B8D9]" />
+              <div className="text-4xl font-black text-[#12344D]">{value}</div>
+              <div className="mt-2 text-sm font-semibold text-[#5A7386]">
+                {label}
+              </div>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="px-6 py-24">
-        <div className="mx-auto max-w-5xl">
-          <Title small="Private Doctor Service" title="Medical care at your hotel, villa or holiday home" />
-
-          <div className="space-y-6 text-lg leading-8 text-slate-300">
-            <p>
-              Finding a reliable doctor in Ölüdeniz can be stressful when you are
-              on holiday. Many visitors stay in hotels, villas, apartments or
-              holiday homes and may not know where to go when they suddenly feel unwell.
-              Oludeniz Doctor is designed to make medical support easier, faster
-              and more comfortable for tourists.
-            </p>
-
-            <p>
-              Instead of trying to find a clinic on your own, you can contact us
-              directly by phone or WhatsApp. We help visitors who need private
-              doctor visits, hotel doctor service, emergency medical support,
-              IV therapy, prescription assistance and help with common holiday
-              health problems.
-            </p>
-
-            <p>
-              Ölüdeniz is one of Turkey’s most popular holiday destinations.
-              During the summer months, visitors may experience dehydration,
-              food poisoning, sunstroke, ear infections after swimming, minor
-              injuries, allergic reactions, fever or stomach problems. A fast
-              private doctor visit can help you receive appropriate medical
-              assessment without interrupting your holiday more than necessary.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-[#0B1F33] px-6 py-24">
+      <section id="services" className="px-6 py-24">
         <div className="mx-auto max-w-7xl">
-          <Title small="Common Holiday Problems" title="Medical issues tourists often face in Ölüdeniz" />
+          <Title small="Medical Services" title="Private medical care when you need it" />
 
           <div className="grid gap-6 md:grid-cols-3">
-            {[
-              [
-                "Food Poisoning",
-                "Stomach pain, vomiting, diarrhea and dehydration can happen during travel. A doctor can assess your condition and recommend suitable care.",
-              ],
-              [
-                "Dehydration & Heat Exhaustion",
-                "Hot weather, sun exposure and alcohol can increase the risk of dehydration. IV therapy may be considered after medical evaluation.",
-              ],
-              [
-                "Ear Infection After Swimming",
-                "Swimming and sea water exposure can sometimes cause ear pain or infection, especially during summer holidays.",
-              ],
-              [
-                "Fever & Flu Symptoms",
-                "Fever, sore throat, cough and body aches can occur during travel. Medical assessment helps determine the right next step.",
-              ],
-              [
-                "Minor Injuries",
-                "Cuts, wounds, sprains and small injuries may need cleaning, dressing or follow-up care.",
-              ],
-              [
-                "Prescription Support",
-                "Tourists may need assistance with medication, prescriptions or medical documents during their stay.",
-              ],
-            ].map(([title, text]) => (
-              <div key={title} className="rounded-[2rem] border border-white/10 bg-[#12263A] p-8">
-                <Stethoscope className="mb-5 h-8 w-8 text-cyan-300" />
-                <h3 className="text-2xl font-black">{title}</h3>
-                <p className="mt-4 leading-7 text-slate-300">{text}</p>
+            {services.map(([Icon, title, text]: any) => (
+              <div
+                key={title}
+                className="group rounded-[2rem] border border-white/70 bg-[#F9FDFF] p-8 shadow-lg transition hover:-translate-y-2 hover:shadow-2xl"
+              >
+                <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#D8F7FF] text-[#00B8D9]">
+                  <Icon className="h-7 w-7" />
+                </div>
+                <h3 className="text-2xl font-black text-[#12344D]">{title}</h3>
+                <p className="mt-4 leading-7 text-[#5A7386]">{text}</p>
+                <div className="mt-7 flex items-center gap-2 font-black text-[#00B8D9]">
+                  Learn More <ChevronRight className="h-4 w-4" />
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="px-6 py-24">
+      <section className="bg-[#BFEAF5]/70 px-6 py-24">
         <div className="mx-auto max-w-7xl">
-          <Title small="Services" title="Doctor services available in Ölüdeniz" />
+          <Title small="Popular Pages" title="Popular medical services and areas" />
 
-          <div className="grid gap-6 md:grid-cols-4">
-            {[
-              ["Hotel Doctor Visits", "Private doctor visits to hotels and resorts in Ölüdeniz."],
-              ["Villa & Home Visits", "Medical care at your villa, apartment or holiday home."],
-              ["Emergency Doctor", "Fast support for urgent health concerns during your stay."],
-              ["IV Therapy", "Hydration and recovery support for tourists."],
-            ].map(([title, text]) => (
-              <div key={title} className="rounded-[2rem] border border-white/10 bg-[#12263A] p-7">
-                <Home className="mb-5 h-7 w-7 text-cyan-300" />
-                <h3 className="text-xl font-black">{title}</h3>
-                <p className="mt-4 leading-7 text-slate-300">{text}</p>
-              </div>
+          <div className="grid gap-6 md:grid-cols-3">
+            {seoPages.map(([title, href]) => (
+              <a
+                key={href}
+                href={href}
+                className="group rounded-[2rem] border border-white/70 bg-[#F9FDFF] p-8 shadow-lg transition hover:-translate-y-2 hover:shadow-2xl"
+              >
+                <MapPin className="mb-6 h-8 w-8 text-[#00B8D9]" />
+                <h3 className="text-2xl font-black text-[#12344D]">{title}</h3>
+                <p className="mt-4 leading-7 text-[#5A7386]">
+                  Learn more about private doctor services, hotel visits and emergency medical care.
+                </p>
+                <div className="mt-7 flex items-center gap-2 font-black text-[#00B8D9]">
+                  Open Page <ChevronRight className="h-4 w-4" />
+                </div>
+              </a>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-[#0B1F33] px-6 py-24">
+      <section id="locations" className="px-6 py-24">
         <div className="mx-auto max-w-7xl">
-          <Title small="Areas Covered" title="Private doctor service around Ölüdeniz" />
+          <Title small="Service Areas" title="We come to you" />
 
           <div className="grid gap-6 md:grid-cols-3">
-            {["Ölüdeniz Beach", "Blue Lagoon", "Hisarönü", "Ovacık", "Faralya", "Kabak"].map((area) => (
-              <div key={area} className="rounded-[2rem] border border-white/10 bg-[#12263A] p-8">
-                <MapPin className="mb-5 h-8 w-8 text-cyan-300" />
-                <h3 className="text-2xl font-black">{area}</h3>
-                <p className="mt-4 leading-7 text-slate-300">
-                  Private doctor support is available for hotels, villas,
-                  apartments and holiday stays in this area.
+            {locations.map((location) => (
+              <div
+                key={location}
+                className="rounded-[2rem] border border-white/70 bg-[#F9FDFF] p-8 shadow-lg transition hover:-translate-y-2 hover:shadow-2xl"
+              >
+                <MapPin className="mb-6 h-8 w-8 text-[#00B8D9]" />
+                <h3 className="text-2xl font-black text-[#12344D]">
+                  Doctor in {location}
+                </h3>
+                <p className="mt-4 leading-7 text-[#5A7386]">
+                  Private doctor service for hotels, villas, holiday homes and local stays.
                 </p>
               </div>
             ))}
@@ -297,62 +296,54 @@ export default function DoctorInOludenizPage() {
         </div>
       </section>
 
-      <section id="faq" className="px-6 py-24">
+      <section id="faq" className="bg-[#D8F7FF]/80 px-6 py-24">
         <div className="mx-auto max-w-4xl">
-          <Title small="FAQ" title="Doctor in Ölüdeniz FAQ" />
+          <Title small="FAQ" title="Frequently asked questions" />
 
-          {faqs.map(([q, a]) => (
-            <div key={q} className="mb-4 rounded-3xl border border-white/10 bg-[#12263A] p-7">
-              <h3 className="text-xl font-black">{q}</h3>
-              <p className="mt-3 leading-7 text-slate-300">{a}</p>
+          {[
+            ["Do you visit hotels?", "Yes, we visit hotels, villas, apartments and holiday homes."],
+            ["Do you speak English?", "Yes, we provide English-speaking medical support."],
+            ["Which areas do you cover?", "Ölüdeniz, Hisarönü, Faralya, Kabak, Ovacık and Kayaköy."],
+            ["Can I contact by WhatsApp?", "Yes, WhatsApp is the fastest way to contact us."],
+          ].map(([q, a]) => (
+            <div
+              key={q}
+              className="mb-4 rounded-3xl border border-white/70 bg-[#F9FDFF] p-7 shadow-sm"
+            >
+              <h3 className="text-xl font-black text-[#12344D]">{q}</h3>
+              <p className="mt-3 leading-7 text-[#5A7386]">{a}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="bg-[#0B1F33] px-6 py-24">
-        <div className="mx-auto max-w-7xl">
-          <Title small="Related Pages" title="Explore more medical services" />
-
-          <div className="grid gap-6 md:grid-cols-3">
-            {[
-              ["Hotel Doctor Ölüdeniz", "/hotel-doctor-oludeniz"],
-              ["IV Therapy Ölüdeniz", "/iv-therapy-oludeniz"],
-              ["Food Poisoning Treatment", "/food-poisoning-treatment"],
-              ["Doctor in Fethiye", "/doctor-in-fethiye"],
-              ["Doctor in Hisarönü", "/doctor-in-hisaronu"],
-              ["Back to Home", "/"],
-            ].map(([title, href]) => (
-              <a key={href} href={href} className="rounded-[2rem] border border-white/10 bg-[#12263A] p-8 transition hover:-translate-y-2">
-                <h3 className="text-2xl font-black">{title}</h3>
-                <p className="mt-4 text-slate-300">Learn more →</p>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="px-6 py-24">
-        <div className="mx-auto max-w-7xl rounded-[2.5rem] bg-red-600 p-10 text-white md:p-16">
+      <section id="contact" className="px-6 py-24">
+        <div className="mx-auto max-w-7xl rounded-[2.5rem] bg-[#FF5A5F] p-10 text-white shadow-2xl md:p-16">
           <div className="grid gap-10 md:grid-cols-2 md:items-center">
             <div>
               <span className="font-black uppercase tracking-[0.3em] text-white/80">
-                Need help in Ölüdeniz?
+                Need help now?
               </span>
               <h2 className="mt-5 text-4xl font-black md:text-6xl">
-                Contact a private doctor now.
+                Need a doctor right now?
               </h2>
+              <p className="mt-6 text-lg leading-8 text-white/85">
+                Call or send a WhatsApp message for fast medical support.
+              </p>
             </div>
 
             <div className="flex flex-col gap-4 md:items-end">
-              <a href="tel:+905519354480" className="rounded-2xl bg-white px-8 py-5 text-center text-lg font-black text-red-600">
+              <a
+                href="tel:+905519354480"
+                className="rounded-2xl bg-white px-8 py-5 text-center text-lg font-black text-[#FF5A5F]"
+              >
                 Call Now
               </a>
               <a
                 href="https://wa.me/905519354480"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-2xl bg-green-500 px-8 py-5 text-center text-lg font-black text-white"
+                className="rounded-2xl bg-[#25D366] px-8 py-5 text-center text-lg font-black text-white"
               >
                 WhatsApp
               </a>
@@ -360,6 +351,59 @@ export default function DoctorInOludenizPage() {
           </div>
         </div>
       </section>
+
+      <footer className="border-t border-white/70 bg-[#12344D] px-6 py-12 text-white">
+        <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-4">
+          <div className="md:col-span-2">
+            <div className="text-2xl font-black">
+              <span className="text-[#8EDCF2]">Oludeniz</span> Doctor
+            </div>
+            <p className="mt-4 max-w-xl leading-7 text-white/70">
+              24/7 private doctor service for tourists, hotels, villas and residents.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="font-black">Areas</h3>
+            <div className="mt-4 grid gap-2 text-white/70">
+              <a href="/doctor-in-oludeniz">Doctor in Ölüdeniz</a>
+              <a href="/doctor-in-fethiye">Doctor in Fethiye</a>
+              <a href="/doctor-in-hisaronu">Doctor in Hisarönü</a>
+              <span>Faralya</span>
+              <span>Kabak</span>
+            </div>
+          </div>
+
+          <div>
+            <h3 className="font-black">Services</h3>
+            <div className="mt-4 grid gap-2 text-white/70">
+              <a href="/hotel-doctor-oludeniz">Hotel Doctor</a>
+              <a href="/iv-therapy-oludeniz">IV Therapy</a>
+              <a href="/food-poisoning-treatment">Food Poisoning</a>
+              <a href="tel:+905519354480">+90 551 935 44 80</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+      <div className="fixed bottom-5 right-5 z-50 flex flex-col gap-3">
+        <a
+          href="https://wa.me/905519354480"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-2xl"
+          aria-label="WhatsApp"
+        >
+          <MessageCircle />
+        </a>
+        <a
+          href="tel:+905519354480"
+          className="flex h-14 w-14 items-center justify-center rounded-full bg-[#FF5A5F] text-white shadow-2xl"
+          aria-label="Call"
+        >
+          <Phone />
+        </a>
+      </div>
     </main>
   );
 }
@@ -367,10 +411,12 @@ export default function DoctorInOludenizPage() {
 function Title({ small, title }: { small: string; title: string }) {
   return (
     <div className="mx-auto mb-14 max-w-3xl text-center">
-      <span className="font-black uppercase tracking-[0.3em] text-cyan-300">
+      <span className="font-black uppercase tracking-[0.3em] text-[#00B8D9]">
         {small}
       </span>
-      <h2 className="mt-5 text-4xl font-black md:text-6xl">{title}</h2>
+      <h2 className="mt-5 text-4xl font-black text-[#12344D] md:text-6xl">
+        {title}
+      </h2>
     </div>
   );
 }

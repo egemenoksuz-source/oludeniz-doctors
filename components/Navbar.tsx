@@ -16,7 +16,7 @@ export default function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 px-4 pt-4">
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between rounded-3xl border border-white/10 bg-slate-950/70 px-6 backdrop-blur-xl shadow-2xl">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between rounded-3xl border border-slate-200 bg-white/90 px-6 shadow-xl backdrop-blur-xl">
 
         {/* Logo */}
         <Logo />
@@ -27,7 +27,7 @@ export default function Navbar() {
             <a
               key={link.name}
               href={link.href}
-              className="font-semibold text-slate-300 transition hover:text-cyan-300"
+              className="font-semibold text-slate-700 transition hover:text-cyan-600"
             >
               {link.name}
             </a>
@@ -36,11 +36,12 @@ export default function Navbar() {
 
         {/* Desktop Buttons */}
         <div className="hidden items-center gap-3 md:flex">
+
           <a
             href="https://wa.me/905519354480"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-5 py-3 font-bold text-white transition hover:bg-white/20"
+            className="flex items-center gap-2 rounded-full bg-green-500 px-5 py-3 font-bold text-white shadow-lg transition hover:scale-105 hover:bg-green-600"
           >
             <MessageCircle size={18} />
             WhatsApp
@@ -48,17 +49,19 @@ export default function Navbar() {
 
           <a
             href="tel:+905519354480"
-            className="flex items-center gap-2 rounded-full bg-cyan-300 px-5 py-3 font-bold text-slate-950 transition hover:bg-cyan-200"
+            className="flex items-center gap-2 rounded-full bg-red-500 px-5 py-3 font-bold text-white shadow-lg transition hover:scale-105 hover:bg-red-600"
           >
             <Phone size={18} />
             Call Now
           </a>
+
         </div>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Button */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/10 text-white md:hidden"
+          className="flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-700 shadow md:hidden"
+          aria-label="Menu"
         >
           {menuOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
@@ -66,7 +69,8 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="mx-auto mt-3 max-w-7xl rounded-3xl border border-white/10 bg-slate-950/95 p-5 backdrop-blur-xl md:hidden">
+        <div className="mx-auto mt-3 max-w-7xl rounded-3xl border border-slate-200 bg-white p-5 shadow-2xl md:hidden">
+
           <div className="flex flex-col gap-3">
 
             {links.map((link) => (
@@ -74,7 +78,7 @@ export default function Navbar() {
                 key={link.name}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
-                className="rounded-xl bg-white/5 px-5 py-4 font-bold text-white transition hover:bg-white/10"
+                className="rounded-xl bg-slate-50 px-5 py-4 font-semibold text-slate-700 transition hover:bg-cyan-50"
               >
                 {link.name}
               </a>
@@ -84,19 +88,20 @@ export default function Navbar() {
               href="https://wa.me/905519354480"
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-xl bg-green-500 px-5 py-4 text-center font-black text-white"
+              className="rounded-xl bg-green-500 px-5 py-4 text-center font-bold text-white"
             >
               WhatsApp
             </a>
 
             <a
               href="tel:+905519354480"
-              className="rounded-xl bg-cyan-300 px-5 py-4 text-center font-black text-slate-950"
+              className="rounded-xl bg-red-500 px-5 py-4 text-center font-bold text-white"
             >
               Call Now
             </a>
 
           </div>
+
         </div>
       )}
     </header>

@@ -1,17 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f8fafc;
-  --foreground: #0f172a;
-
-  --primary: #14b8a6;
-  --primary-dark: #0f766e;
-  --secondary: #0891b2;
-
-  --navy: #0f172a;
-  --muted: #64748b;
-  --soft: #f1f5f9;
-  --border: #e2e8f0;
+  --bg: #bfeaf5;
+  --bg-soft: #d8f7ff;
+  --card: #f9fdff;
+  --title: #12344d;
+  --text: #5a7386;
+  --primary: #00b8d9;
+  --primary-dark: #009fc0;
+  --gold: #d4af37;
+  --call: #ff5a5f;
+  --whatsapp: #25d366;
 }
 
 * {
@@ -24,8 +23,10 @@ html {
 
 body {
   margin: 0;
-  background: var(--background);
-  color: var(--foreground);
+  background:
+    radial-gradient(circle at top left, rgba(0, 184, 217, 0.28), transparent 34%),
+    linear-gradient(135deg, #8edcf2 0%, #aeeaf8 42%, #d8f7ff 100%);
+  color: var(--title);
   font-family: var(--font-inter), Arial, Helvetica, sans-serif;
 }
 
@@ -36,38 +37,4 @@ a {
 ::selection {
   background: var(--primary);
   color: white;
-}
-
-.container-premium {
-  width: 100%;
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
-
-.section-padding {
-  padding: 96px 0;
-}
-
-.glass-card {
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  background: rgba(255, 255, 255, 0.78);
-  backdrop-filter: blur(20px);
-  box-shadow: 0 24px 80px rgba(15, 23, 42, 0.12);
-}
-
-.premium-gradient-text {
-  background: linear-gradient(90deg, #14b8a6, #0891b2);
-  -webkit-background-clip: text;
-  color: transparent;
-}
-
-@media (max-width: 768px) {
-  .section-padding {
-    padding: 72px 0;
-  }
-
-  .container-premium {
-    padding: 0 18px;
-  }
 }
