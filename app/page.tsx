@@ -32,6 +32,15 @@ export default function HomePage() {
     [FileText, "Prescription Support", "Medication and document support."],
   ];
 
+  const seoPages = [
+    ["Doctor in Ölüdeniz", "/doctor-in-oludeniz"],
+    ["Doctor in Fethiye", "/doctor-in-fethiye"],
+    ["Doctor in Hisarönü", "/doctor-in-hisaronu"],
+    ["Hotel Doctor Ölüdeniz", "/hotel-doctor-oludeniz"],
+    ["IV Therapy Ölüdeniz", "/iv-therapy-oludeniz"],
+    ["Food Poisoning Treatment", "/food-poisoning-treatment"],
+  ];
+
   const locations = [
     "Ölüdeniz",
     "Hisarönü",
@@ -60,18 +69,10 @@ export default function HomePage() {
           </a>
 
           <nav className="hidden gap-8 font-bold text-slate-300 md:flex">
-            <a href="#services" className="hover:text-cyan-300">
-              Services
-            </a>
-            <a href="#locations" className="hover:text-cyan-300">
-              Locations
-            </a>
-            <a href="#faq" className="hover:text-cyan-300">
-              FAQ
-            </a>
-            <a href="#contact" className="hover:text-cyan-300">
-              Contact
-            </a>
+            <a href="#services" className="hover:text-cyan-300">Services</a>
+            <a href="#locations" className="hover:text-cyan-300">Locations</a>
+            <a href="#faq" className="hover:text-cyan-300">FAQ</a>
+            <a href="#contact" className="hover:text-cyan-300">Contact</a>
           </nav>
 
           <div className="hidden gap-3 md:flex">
@@ -162,24 +163,6 @@ export default function HomePage() {
                 <MessageCircle className="mr-3 h-5 w-5" />
                 WhatsApp
               </a>
-            </div>
-
-            <div className="mt-10 grid gap-4 sm:grid-cols-3">
-              {[
-                ["24/7", "Available"],
-                ["EN", "English Speaking"],
-                ["6+", "Service Areas"],
-              ].map(([value, label]) => (
-                <div
-                  key={label}
-                  className="rounded-3xl border border-white/10 bg-white/10 p-5 backdrop-blur"
-                >
-                  <div className="text-3xl font-black text-cyan-300">
-                    {value}
-                  </div>
-                  <div className="mt-1 text-sm text-slate-300">{label}</div>
-                </div>
-              ))}
             </div>
           </div>
 
@@ -275,7 +258,36 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="locations" className="bg-[#0B1F33] px-6 py-24">
+      <section className="bg-[#0B1F33] px-6 py-24">
+        <div className="mx-auto max-w-7xl">
+          <Title
+            small="Popular Pages"
+            title="Popular medical services and areas"
+          />
+
+          <div className="grid gap-6 md:grid-cols-3">
+            {seoPages.map(([title, href]) => (
+              <a
+                key={href}
+                href={href}
+                className="group rounded-[2rem] border border-white/10 bg-[#12263A] p-8 transition hover:-translate-y-2 hover:shadow-2xl hover:shadow-cyan-950/40"
+              >
+                <MapPin className="mb-6 h-8 w-8 text-cyan-300" />
+                <h3 className="text-2xl font-black">{title}</h3>
+                <p className="mt-4 leading-7 text-slate-300">
+                  Learn more about private doctor services, hotel visits and
+                  emergency medical care.
+                </p>
+                <div className="mt-7 flex items-center gap-2 font-black text-cyan-300">
+                  Open Page <ChevronRight className="h-4 w-4" />
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="locations" className="px-6 py-24">
         <div className="mx-auto max-w-7xl">
           <Title small="Service Areas" title="We come to you" />
 
@@ -291,16 +303,13 @@ export default function HomePage() {
                   Private doctor service for hotels, villas, holiday homes and
                   local stays.
                 </p>
-                <div className="mt-7 font-black text-cyan-300">
-                  Learn More →
-                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="faq" className="px-6 py-24">
+      <section id="faq" className="bg-[#0B1F33] px-6 py-24">
         <div className="mx-auto max-w-4xl">
           <Title small="FAQ" title="Frequently asked questions" />
 
@@ -383,24 +392,21 @@ export default function HomePage() {
           <div>
             <h3 className="font-black">Areas</h3>
             <div className="mt-4 grid gap-2 text-slate-400">
-              <span>Ölüdeniz</span>
-              <span>Hisarönü</span>
+              <a href="/doctor-in-oludeniz">Doctor in Ölüdeniz</a>
+              <a href="/doctor-in-fethiye">Doctor in Fethiye</a>
+              <a href="/doctor-in-hisaronu">Doctor in Hisarönü</a>
               <span>Faralya</span>
               <span>Kabak</span>
             </div>
           </div>
 
           <div>
-            <h3 className="font-black">Contact</h3>
+            <h3 className="font-black">Services</h3>
             <div className="mt-4 grid gap-2 text-slate-400">
+              <a href="/hotel-doctor-oludeniz">Hotel Doctor</a>
+              <a href="/iv-therapy-oludeniz">IV Therapy</a>
+              <a href="/food-poisoning-treatment">Food Poisoning</a>
               <a href="tel:+905519354480">+90 551 935 44 80</a>
-              <a
-                href="https://wa.me/905519354480"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                WhatsApp
-              </a>
             </div>
           </div>
         </div>
