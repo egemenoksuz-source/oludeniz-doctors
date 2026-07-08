@@ -10,7 +10,7 @@ export default function SeoSchema() {
         logo: "https://oludenizdoctor.com/icon.png",
         contactPoint: {
           "@type": "ContactPoint",
-          telephone: "+905519354480",
+          telephone: "+905519354800",
           contactType: "customer service",
           availableLanguage: ["English", "Turkish"],
         },
@@ -20,7 +20,7 @@ export default function SeoSchema() {
         "@id": "https://oludenizdoctor.com/#business",
         name: "Oludeniz Doctor",
         url: "https://oludenizdoctor.com",
-        telephone: "+905519354480",
+        telephone: "+905519354800",
         image: "https://oludenizdoctor.com/images/hero.jpg",
         priceRange: "$$",
         description:
@@ -76,44 +76,6 @@ export default function SeoSchema() {
         about: {
           "@id": "https://oludenizdoctor.com/#business",
         },
-      },
-      {
-        "@type": "FAQPage",
-        "@id": "https://oludenizdoctor.com/#faq",
-        mainEntity: [
-          {
-            "@type": "Question",
-            name: "Do you visit hotels in Ölüdeniz?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Yes. Oludeniz Doctor provides private doctor visits to hotels, villas, apartments and holiday homes in Ölüdeniz and nearby areas.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "Do you speak English?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Yes. English-speaking medical support is available for tourists and international visitors.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "Which areas do you cover?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "We cover Ölüdeniz, Fethiye, Hisarönü, Ovacık, Faralya, Kabak and nearby areas.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "Can I contact you on WhatsApp?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Yes. WhatsApp is available for fast communication and location sharing.",
-            },
-          },
-        ],
       },
     ],
   };

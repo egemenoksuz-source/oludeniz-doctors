@@ -38,7 +38,7 @@ export default function Navbar() {
         <div className="hidden items-center gap-3 md:flex">
 
           <a
-            href="https://wa.me/905519354480"
+            href="https://wa.me/905519354800"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 rounded-full bg-green-500 px-5 py-3 font-bold text-white shadow-lg transition hover:scale-105 hover:bg-green-600"
@@ -48,7 +48,7 @@ export default function Navbar() {
           </a>
 
           <a
-            href="tel:+905519354480"
+            href="tel:+905519354800"
             className="flex items-center gap-2 rounded-full bg-red-500 px-5 py-3 font-bold text-white shadow-lg transition hover:scale-105 hover:bg-red-600"
           >
             <Phone size={18} />
@@ -85,7 +85,7 @@ export default function Navbar() {
             ))}
 
             <a
-              href="https://wa.me/905519354480"
+              href="https://wa.me/905519354800"
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-xl bg-green-500 px-5 py-4 text-center font-bold text-white"
@@ -94,7 +94,7 @@ export default function Navbar() {
             </a>
 
             <a
-              href="tel:+905519354480"
+              href="tel:+905519354800"
               className="rounded-xl bg-red-500 px-5 py-4 text-center font-bold text-white"
             >
               Call Now
