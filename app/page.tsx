@@ -27,28 +27,21 @@ export default function HomePage() {
     [Ambulance, "Emergency Doctor", "24/7 urgent private medical support."],
     [Building2, "Hotel Doctor", "Doctor visits to hotels and resorts."],
     [Home, "Home Visit", "Private doctor visits to villas and homes."],
-    [Droplets, "IV Therapy", "Hydration and recovery treatments."],
+    [Droplets, "IV Therapy", "Hydration treatments."],
     [Bandage, "Wound Care", "Professional wound care and dressing."],
     [FileText, "Prescription Support", "Medication and document support."],
   ];
 
   const seoPages = [
     ["Doctor in Ölüdeniz", "/doctor-in-oludeniz"],
+    ["About Oludeniz Doctor", "/about-doctor"],
     ["Doctor in Fethiye", "/doctor-in-fethiye"],
     ["Doctor in Hisarönü", "/doctor-in-hisaronu"],
     ["Hotel Doctor Ölüdeniz", "/hotel-doctor-oludeniz"],
     ["IV Therapy Ölüdeniz", "/iv-therapy-oludeniz"],
-    ["Food Poisoning Treatment", "/food-poisoning-treatment"],
   ];
 
-  const locations = [
-    "Ölüdeniz",
-    "Hisarönü",
-    "Faralya",
-    "Kabak",
-    "Ovacık",
-    "Kayaköy",
-  ];
+  const locations = ["Ölüdeniz", "Hisarönü", "Faralya", "Kabak", "Ovacık", "Kayaköy"];
 
   return (
     <main className="min-h-screen text-[#12344D]">
@@ -60,11 +53,8 @@ export default function HomePage() {
             <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#00B8D9] text-white shadow-lg">
               <span className="font-black">OD</span>
             </div>
-
             <div>
-              <div className="text-xl font-black text-[#12344D]">
-                Oludeniz
-              </div>
+              <div className="text-xl font-black text-[#12344D]">Oludeniz</div>
               <div className="text-xs font-black tracking-[0.25em] text-[#00B8D9]">
                 DOCTOR
               </div>
@@ -72,18 +62,11 @@ export default function HomePage() {
           </a>
 
           <nav className="hidden gap-8 font-bold text-[#5A7386] md:flex">
-            <a href="#services" className="hover:text-[#00B8D9]">
-              Services
-            </a>
-            <a href="#locations" className="hover:text-[#00B8D9]">
-              Locations
-            </a>
-            <a href="#faq" className="hover:text-[#00B8D9]">
-              FAQ
-            </a>
-            <a href="#contact" className="hover:text-[#00B8D9]">
-              Contact
-            </a>
+            <a href="/about-doctor" className="hover:text-[#00B8D9]">About</a>
+            <a href="#services" className="hover:text-[#00B8D9]">Services</a>
+            <a href="#locations" className="hover:text-[#00B8D9]">Locations</a>
+            <a href="#faq" className="hover:text-[#00B8D9]">FAQ</a>
+            <a href="#contact" className="hover:text-[#00B8D9]">Contact</a>
           </nav>
 
           <div className="hidden gap-3 md:flex">
@@ -115,14 +98,20 @@ export default function HomePage() {
 
         {menuOpen && (
           <div className="mx-auto mt-3 max-w-7xl rounded-3xl border border-white/70 bg-white/90 p-5 shadow-2xl backdrop-blur-xl md:hidden">
-            {["Services", "Locations", "FAQ", "Contact"].map((item) => (
+            {[
+              ["About", "/about-doctor"],
+              ["Services", "#services"],
+              ["Locations", "#locations"],
+              ["FAQ", "#faq"],
+              ["Contact", "#contact"],
+            ].map(([name, href]) => (
               <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
+                key={name}
+                href={href}
                 onClick={() => setMenuOpen(false)}
                 className="mb-3 block rounded-xl bg-[#D8F7FF] px-4 py-4 font-bold text-[#12344D]"
               >
-                {item}
+                {name}
               </a>
             ))}
           </div>
@@ -149,8 +138,7 @@ export default function HomePage() {
 
             <p className="mt-7 max-w-2xl text-lg leading-8 text-[#5A7386] md:text-xl">
               Fast, discreet and English-speaking medical care for tourists,
-              hotels, villas and families in Ölüdeniz, Hisarönü, Faralya and
-              Kabak.
+              hotels, villas and families in Ölüdeniz, Hisarönü, Faralya and Kabak.
             </p>
 
             <div className="mt-9 flex flex-col gap-4 sm:flex-row">
@@ -206,9 +194,7 @@ export default function HomePage() {
                     <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#00B8D9] font-black text-white">
                       ✓
                     </span>
-                    <span className="font-semibold text-[#12344D]">
-                      {item}
-                    </span>
+                    <span className="font-semibold text-[#12344D]">{item}</span>
                   </div>
                 ))}
               </div>
@@ -230,12 +216,8 @@ export default function HomePage() {
               className="rounded-3xl border border-white/70 bg-[#F9FDFF] p-6 text-center shadow-sm"
             >
               <Icon className="mx-auto mb-3 h-7 w-7 text-[#00B8D9]" />
-              <div className="text-4xl font-black text-[#12344D]">
-                {value}
-              </div>
-              <div className="mt-2 text-sm font-semibold text-[#5A7386]">
-                {label}
-              </div>
+              <div className="text-4xl font-black text-[#12344D]">{value}</div>
+              <div className="mt-2 text-sm font-semibold text-[#5A7386]">{label}</div>
             </div>
           ))}
         </div>
@@ -243,10 +225,7 @@ export default function HomePage() {
 
       <section id="services" className="px-6 py-24">
         <div className="mx-auto max-w-7xl">
-          <Title
-            small="Medical Services"
-            title="Private medical care when you need it"
-          />
+          <Title small="Medical Services" title="Private medical care when you need it" />
 
           <div className="grid gap-6 md:grid-cols-3">
             {services.map(([Icon, title, text]: any) => (
@@ -257,13 +236,8 @@ export default function HomePage() {
                 <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#D8F7FF] text-[#00B8D9]">
                   <Icon className="h-7 w-7" />
                 </div>
-
-                <h3 className="text-2xl font-black text-[#12344D]">
-                  {title}
-                </h3>
-
+                <h3 className="text-2xl font-black text-[#12344D]">{title}</h3>
                 <p className="mt-4 leading-7 text-[#5A7386]">{text}</p>
-
                 <div className="mt-7 flex items-center gap-2 font-black text-[#00B8D9]">
                   Learn More <ChevronRight className="h-4 w-4" />
                 </div>
@@ -275,10 +249,7 @@ export default function HomePage() {
 
       <section className="bg-[#BFEAF5]/70 px-6 py-24">
         <div className="mx-auto max-w-7xl">
-          <Title
-            small="Popular Pages"
-            title="Popular medical services and areas"
-          />
+          <Title small="Popular Pages" title="Popular medical services and areas" />
 
           <div className="grid gap-6 md:grid-cols-3">
             {seoPages.map(([title, href]) => (
@@ -288,16 +259,10 @@ export default function HomePage() {
                 className="group rounded-[2rem] border border-white/70 bg-[#F9FDFF] p-8 shadow-lg transition hover:-translate-y-2 hover:shadow-2xl"
               >
                 <MapPin className="mb-6 h-8 w-8 text-[#00B8D9]" />
-
-                <h3 className="text-2xl font-black text-[#12344D]">
-                  {title}
-                </h3>
-
+                <h3 className="text-2xl font-black text-[#12344D]">{title}</h3>
                 <p className="mt-4 leading-7 text-[#5A7386]">
-                  Learn more about private doctor services, hotel visits and
-                  emergency medical care.
+                  Learn more about private doctor services, hotel visits and emergency medical care.
                 </p>
-
                 <div className="mt-7 flex items-center gap-2 font-black text-[#00B8D9]">
                   Open Page <ChevronRight className="h-4 w-4" />
                 </div>
@@ -318,14 +283,9 @@ export default function HomePage() {
                 className="rounded-[2rem] border border-white/70 bg-[#F9FDFF] p-8 shadow-lg transition hover:-translate-y-2 hover:shadow-2xl"
               >
                 <MapPin className="mb-6 h-8 w-8 text-[#00B8D9]" />
-
-                <h3 className="text-2xl font-black text-[#12344D]">
-                  Doctor in {location}
-                </h3>
-
+                <h3 className="text-2xl font-black text-[#12344D]">Doctor in {location}</h3>
                 <p className="mt-4 leading-7 text-[#5A7386]">
-                  Private doctor service for hotels, villas, holiday homes and
-                  local stays.
+                  Private doctor service for hotels, villas, holiday homes and local stays.
                 </p>
               </div>
             ))}
@@ -338,22 +298,10 @@ export default function HomePage() {
           <Title small="FAQ" title="Frequently asked questions" />
 
           {[
-            [
-              "Do you visit hotels?",
-              "Yes, we visit hotels, villas, apartments and holiday homes.",
-            ],
-            [
-              "Do you speak English?",
-              "Yes, we provide English-speaking medical support.",
-            ],
-            [
-              "Which areas do you cover?",
-              "Ölüdeniz, Hisarönü, Faralya, Kabak, Ovacık and Kayaköy.",
-            ],
-            [
-              "Can I contact by WhatsApp?",
-              "Yes, WhatsApp is the fastest way to contact us.",
-            ],
+            ["Do you visit hotels?", "Yes, we visit hotels, villas, apartments and holiday homes."],
+            ["Do you speak English?", "Yes, we provide English-speaking medical support."],
+            ["Which areas do you cover?", "Ölüdeniz, Hisarönü, Faralya, Kabak, Ovacık and Kayaköy."],
+            ["Can I contact by WhatsApp?", "Yes, WhatsApp is the fastest way to contact us."],
           ].map(([q, a]) => (
             <div
               key={q}
@@ -373,11 +321,9 @@ export default function HomePage() {
               <span className="font-black uppercase tracking-[0.3em] text-white/80">
                 Need help now?
               </span>
-
               <h2 className="mt-5 text-4xl font-black md:text-6xl">
                 Need a doctor right now?
               </h2>
-
               <p className="mt-6 text-lg leading-8 text-white/85">
                 Call or send a WhatsApp message for fast medical support.
               </p>
@@ -412,14 +358,12 @@ export default function HomePage() {
             </div>
 
             <p className="mt-4 max-w-xl leading-7 text-white/70">
-              24/7 private doctor service for tourists, hotels, villas and
-              residents.
+              24/7 private doctor service for tourists, hotels, villas and residents.
             </p>
           </div>
 
           <div>
             <h3 className="font-black">Areas</h3>
-
             <div className="mt-4 grid gap-2 text-white/70">
               <a href="/doctor-in-oludeniz">Doctor in Ölüdeniz</a>
               <a href="/doctor-in-fethiye">Doctor in Fethiye</a>
@@ -431,7 +375,6 @@ export default function HomePage() {
 
           <div>
             <h3 className="font-black">Services</h3>
-
             <div className="mt-4 grid gap-2 text-white/70">
               <a href="/hotel-doctor-oludeniz">Hotel Doctor</a>
               <a href="/iv-therapy-oludeniz">IV Therapy</a>
@@ -471,7 +414,6 @@ function Title({ small, title }: { small: string; title: string }) {
       <span className="font-black uppercase tracking-[0.3em] text-[#00B8D9]">
         {small}
       </span>
-
       <h2 className="mt-5 text-4xl font-black text-[#12344D] md:text-6xl">
         {title}
       </h2>
