@@ -82,7 +82,7 @@ export default function SeoLandingPage({
         "@type": ["MedicalBusiness", "LocalBusiness"],
         name: "Oludeniz Doctor",
         url: "https://oludenizdoctor.com",
-        telephone: "+905519354480",
+        telephone: "+905519354800",
         areaServed: areaName,
         medicalSpecialty: [
           "Emergency Medicine",
@@ -140,7 +140,7 @@ export default function SeoLandingPage({
 
               <div className="mt-9 flex flex-col gap-4 sm:flex-row">
                 <a
-                  href="tel:+905519354480"
+                  href="tel:+905519354800"
                   className="inline-flex items-center justify-center rounded-2xl bg-red-600 px-8 py-5 text-lg font-black text-white"
                 >
                   <Phone className="mr-3 h-5 w-5" />
@@ -148,7 +148,7 @@ export default function SeoLandingPage({
                 </a>
 
                 <a
-                  href="https://wa.me/905519354480"
+                  href="https://wa.me/905519354800"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center rounded-2xl bg-green-500 px-8 py-5 text-lg font-black text-white"
@@ -371,13 +371,13 @@ export default function SeoLandingPage({
 
             <div className="flex flex-col gap-4 md:items-end">
               <a
-                href="tel:+905519354480"
+                href="tel:+905519354800"
                 className="rounded-2xl bg-white px-8 py-5 text-center text-lg font-black text-red-600"
               >
                 Call Now
               </a>
               <a
-                href="https://wa.me/905519354480"
+                href="https://wa.me/905519354800"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="rounded-2xl bg-green-500 px-8 py-5 text-center text-lg font-black text-white"

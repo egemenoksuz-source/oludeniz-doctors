@@ -77,7 +77,7 @@ export default function HomePage() {
 
           <div className="hidden gap-3 md:flex">
             <a
-              href="https://wa.me/905519354480"
+              href="https://wa.me/905519354800"
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-full bg-[#25D366] px-5 py-3 font-black text-white shadow-lg transition hover:scale-105"
@@ -85,7 +85,7 @@ export default function HomePage() {
               WhatsApp
             </a>
             <a
-              href="tel:+905519354480"
+              href="tel:+905519354800"
               className="rounded-full bg-[#FF5A5F] px-5 py-3 font-black text-white shadow-lg transition hover:scale-105"
             >
               Call Now
@@ -143,14 +143,14 @@ export default function HomePage() {
 
             <div className="mt-9 flex flex-col gap-4 sm:flex-row">
               <a
-                href="tel:+905519354480"
+                href="tel:+905519354800"
                 className="inline-flex items-center justify-center rounded-2xl bg-[#FF5A5F] px-8 py-5 text-lg font-black text-white shadow-xl transition hover:scale-105"
               >
                 <Phone className="mr-3 h-5 w-5" />
                 Call Now
               </a>
               <a
-                href="https://wa.me/905519354480"
+                href="https://wa.me/905519354800"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center rounded-2xl bg-[#25D366] px-8 py-5 text-lg font-black text-white shadow-xl transition hover:scale-105"
@@ -340,7 +340,7 @@ export default function HomePage() {
                 Call Now
               </a>
               <a
-                href="https://wa.me/905519354480"
+                href="https://wa.me/905519354800"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="rounded-2xl bg-[#25D366] px-8 py-5 text-center text-lg font-black text-white"
@@ -388,7 +388,7 @@ export default function HomePage() {
 
       <div className="fixed bottom-5 right-5 z-50 flex flex-col gap-3">
         <a
-          href="https://wa.me/905519354480"
+          href="https://wa.me/905519354800"
           target="_blank"
           rel="noopener noreferrer"
           className="flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-2xl"
@@ -397,7 +397,7 @@ export default function HomePage() {
           <MessageCircle />
         </a>
         <a
-          href="tel:+905519354480"
+          href="tel:+905519354800"
           className="flex h-14 w-14 items-center justify-center rounded-full bg-[#FF5A5F] text-white shadow-2xl"
           aria-label="Call"
         >

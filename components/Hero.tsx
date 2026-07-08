@@ -70,7 +70,7 @@ export default function Hero() {
             </a>
 
             <a
-              href="https://wa.me/905519354480"
+              href="https://wa.me/905519354800"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center rounded-2xl border border-white/15 bg-white/10 px-8 py-5 text-lg font-black text-white backdrop-blur transition hover:-translate-y-1 hover:bg-white/15"
@@ -137,7 +137,7 @@ export default function Hero() {
                 Direct Line
               </p>
               <a
-                href="tel:+905519354480"
+                href="tel:+905519354800"
                 className="mt-2 block font-[var(--font-poppins)] text-2xl font-black"
               >
                 +90 551 935 44 80

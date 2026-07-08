@@ -26,7 +26,7 @@ export default function Footer() {
           <h3 className="font-bold text-white">Contact</h3>
           <div className="mt-4 grid gap-2 text-slate-400">
             <a href="tel:+905519354480">+90 551 935 44 80</a>
-            <a href="https://wa.me/905519354480" target="_blank">
+            <a href="https://wa.me/905519354800" target="_blank">
               WhatsApp
             </a>
           </div>

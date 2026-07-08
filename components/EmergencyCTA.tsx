@@ -28,7 +28,7 @@ export default function EmergencyCTA() {
             </a>
 
             <a
-              href="https://wa.me/905519354480"
+              href="https://wa.me/905519354800"
               target="_blank"
               rel="noopener noreferrer"
               className="flex w-full items-center justify-center rounded-2xl border border-slate-950/20 bg-white/40 px-8 py-5 text-lg font-black text-slate-950 transition hover:bg-white/60 md:w-auto"

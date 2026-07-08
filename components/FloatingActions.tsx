@@ -4,7 +4,7 @@ export default function FloatingActions() {
   return (
     <div className="fixed bottom-5 right-5 z-50 flex flex-col gap-3">
       <a
-        href="https://wa.me/905519354480"
+        href="https://wa.me/905519354800"
         target="_blank"
         rel="noopener noreferrer"
         className="flex h-14 w-14 items-center justify-center rounded-full bg-green-500 text-white shadow-2xl transition hover:scale-110"
